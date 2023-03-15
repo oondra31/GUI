@@ -5,8 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:minesweeper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Minesweeper" Height="500" Width="500"
+        Background="#7ad2fa">
+
     <Grid>
-        
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+        <TextBlock FontSize="50" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Text="Minesweeper"/>            
+            <Button FontSize="30" 
+                    Content="Start" 
+                    Click="StartButtonClick" 
+                    Grid.Row="1"  
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>         
+
+       
+            <Button FontSize="30" 
+                    Background="Transparent" 
+                    BorderBrush="Transparent" 
+                    Content="Quit" 
+                    Click="CloseButtonClick" 
+                    Grid.Row="3" Grid.Column="3" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>           
+            
+                <Image Source="images/Mine.png"
+                       RenderOptions.BitmapScalingMode="Fant" 
+                       Grid.RowSpan="4" Width="220" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Bottom" 
+                       Panel.ZIndex="-1"/>
+
+        <Image Source="images/Flag2.png"
+                       RenderOptions.BitmapScalingMode="Fant"
+                       Grid.RowSpan="4" Width="300" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Bottom" 
+                       Panel.ZIndex="-1"/>
     </Grid>
+
 </Window>

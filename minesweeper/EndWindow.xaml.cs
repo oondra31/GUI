@@ -5,33 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace minesweeper
 {
-
-    public partial class MainWindow : Window
+    public partial class EndWindow : Window
     {
-        public MainWindow()
+        public bool result { get; private set; } = false;
+        public EndWindow()
         {
             InitializeComponent();
         }
 
-        private void CloseButtonClick(object sender, RoutedEventArgs e)
+        private void ClickYes(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();           
+            result = true;
         }
-        private void StartButtonClick(object sender, RoutedEventArgs e)
+
+        private void ClickNO(object sender, RoutedEventArgs e)
         {
-            new Game().Show();
-            Close();            
+            this.Close();
         }
-    
     }
 }
